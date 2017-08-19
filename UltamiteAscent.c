@@ -18,7 +18,7 @@ int max(int a,int b){
 
 int pewSpeed = 0; //how fast Tejas wants the shooter to spin
 bool shootOn = false; //if shooting is on
-
+bool childLock = true;
 task main(){
 	/*
 	How to drive:
@@ -34,12 +34,27 @@ task main(){
 
 	while(1==1){
 		//set driving wheels to 0 unless specified
+
+
+		//on until turned off; no need to hold 7L
+
+		if (vexRT[Btn8R]){
+			childLock = false;
+		} else if (vexRT[Btn7D]&&vexRT[Btn8L]&&!vexRT[Btn8D]){
+			childLock = true;
+
+		}
+		if (childLock) {
+			motor[leftBack] = vexRT[Ch3];
+			motor[leftFront] = -vexRT[Ch3];
+			motor[rightBack] = -vexRT[Ch2];
+			motor[rightFront] = -vexRT[Ch2];
+		}else {
 		motor[leftFront] = 0;
 		motor[rightFront] = 0;
 		motor[rightBack] = 0;
 		motor[leftBack] = 0;
-
-		//on until turned off; no need to hold 7L
+	}
 		if (vexRT[Btn7L]){
 			shootOn = true;
 		}
