@@ -20,4 +20,6 @@ How to shoot:
 
 	toggle shooting wheel on             -> button 7L
 	toggle shooting wheel off            -> button 7R
+	increase hsooting speed              -> upper left trigger (5U)
+	decrease shooting speed              -> lower left trigger (5D)
 	eject frisbee                        -> upper right trigger (6U)
